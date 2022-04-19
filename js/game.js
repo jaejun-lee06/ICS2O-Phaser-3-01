@@ -20,7 +20,7 @@ const config = {
   //set background color
   backgroundColor: 0x5f6e7a,
   scale: {
-    mode: Phager.Scale.FIT,
+    mode: Phaser.Scale.FIT,
     //we place it in the middle of the page
     autoCenter: Phaser.Scale.CENTER_BOTH
   }
