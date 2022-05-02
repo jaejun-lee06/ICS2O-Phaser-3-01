@@ -6,25 +6,40 @@
 // Created on: April 2022
 // This is the Splash Scene
 
+
+/**
+ * This class is the splash scene.
+ */
 class SplashScene extends Phaser.Scene {
-  constructor () {
-    super({ key: 'splashScene'})
+  constructor() {
+    super({ key: "splashScene" });
+
+    this.splashSceneBackgroundImage = null;
   }
 
-  init (data) {
-    this.cameras.main.setBackgroundColor('#ffffff')
+  init(data) {
+    this.cameras.main.setBackgroundColor("#ffffff");
   }
 
-  preload () {
-    console.log('Splash Scene')
+  preload() {
+    console.log("Splash Scene");
+    this.load.image("splashSceneBackground", "./assets/splashSceneImage.png");
   }
 
-  creat (data) {
+  create(data) {
+    this.splashSceneBackgroundImage = this.add.sprite(
+      0,
+      0,
+      "splashSceneBackground"
+    );
+    this.splashSceneBackgroundImage.x = 1920 / 2;
+    this.splashSceneBackgroundImage.y = 1080 / 2;
   }
 
-  update (time, delta) {
-    this.scene.switch('titleScene')
+  update(time, delta) {
+    if (time > 3000) {
+      this.scene.switch("titleScene");
+    }
   }
 }
-
-export default SplashScene
+export default SplashScene;
