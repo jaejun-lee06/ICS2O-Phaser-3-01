@@ -7,41 +7,40 @@
 // This is the Title Scene
 
 /**
-  * This class is the Menu Scene.
-  */
+ * This class is the Menu Scene.
+ */
 class MenuScene extends Phaser.Scene {
-  constructor () {
-    super({ key: 'menuScene' })
+  constructor() {
+    super({ key: "menuScene" })
 
     this.menuSceneBackgroundImage = null
-    this.menuSceneText = null
-  }
-  
-  init (data) {
-    this.cameras.main.setBackgroundColor('#ffffff')
+    this.startButton = null
   }
 
-  preload () {
-    console.log('Menu Scene')
-    this.load.image('menuSceneBackground', 'assets/aliens_screen_image2.jpg')
-    this.load.image('startButton', 'assets/start.png')
+  init(data) {
+    this.cameras.main.setBackgroundColor("#ffffff")
   }
 
-  create (data) {
-    this.titleSceneBackgroundImage = this.add.sprite(0, 0, 'menuSceneBackground')
-    this.titleSceneBackgroundImage.x = 1920 / 2
-    this.titleSceneBackgroundImage.y = 1080 / 2
+  preload() {
+    console.log("Menu Scene")
+    this.load.image("menuSceneBackground", "./assets/aliens_screen_image2.jpg")
+    this.load.image("startButton", "./assets/start.png")
+  }
 
-    this.startButton = this.add.sprite(1920 / 2, (1080 / 2) + 100, 'startButton')
+  create(data) {
+    this.menuSceneBackgroundImage = this.add.sprite(0, 0, "menuSceneBackground")
+    this.menuSceneBackgroundImage.x = 1920 / 2
+    this.menuSceneBackgroundImage.y = 1080 / 2
+
+    this.startButton = this.add.sprite(1920 / 2, 1080 / 2 + 100, "startButton")
     this.startButton.setInteractive({ useHandCursor: true })
-    this.startButton.on('pointerdown', () => this.clickButton())
+    this.startButton.on("pointerdown", () => this.clickButton())
   }
 
-  update (time, delta) {
-  }
+  update(time, delta) {}
 
-  clickButton () {
-    this.scene.start('gameScene')
+  clickButton() {
+    this.scene.start("gameScene")
   }
 }
 
